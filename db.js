@@ -6,7 +6,8 @@ var db = {}
 
 module.exports = db
 
-db.url = "postgres://localhost/herokupg"
+db.url = process.env.HEROKU_POSTGRESQL_PINK_URL ||
+  "postgres://localhost/herokupg"
 
 db.readQuery = function(query) {
   var rs = new ReadableStream({objectMode:true})
